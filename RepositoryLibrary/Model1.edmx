@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_rajputbookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_AdminLogin">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_BlogCategory">
+          <Key>
+            <PropertyRef Name="Category_id" />
+          </Key>
+          <Property Name="Category_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_Nm" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tb_BloggerList">
+          <Key>
+            <PropertyRef Name="Blogger_id" />
+          </Key>
+          <Property Name="Blogger_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BloggerName" Type="nvarchar" MaxLength="150" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Organization_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="Editby" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProfilePict" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="State" Type="nvarchar" MaxLength="150" />
+          <Property Name="Zipcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Country" Type="nvarchar" MaxLength="150" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProfPic" Type="image" />
+        </EntityType>
+        <EntityType Name="tb_bloggerregistration">
+          <Key>
+            <PropertyRef Name="Blogger_id" />
+          </Key>
+          <Property Name="Blogger_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="Editby" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProfilePict" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="State" Type="nvarchar" MaxLength="150" />
+          <Property Name="Zipcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Country" Type="nvarchar" MaxLength="150" />
+          <Property Name="LoginUser" Type="nvarchar" MaxLength="150" />
+          <Property Name="Organization_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+          <Property Name="ProfilePictTest" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tb_CountryMaster">
+          <Key>
+            <PropertyRef Name="Country_id" />
+          </Key>
+          <Property Name="Country_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country_Nm" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tb_OrganizationList">
+          <Key>
+            <PropertyRef Name="Organization_id" />
+          </Key>
+          <Property Name="Organization_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="Editby" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProfilePict" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="State" Type="nvarchar" MaxLength="150" />
+          <Property Name="Zipcode" Type="nvarchar" MaxLength="150" />
+          <Property Name="Country" Type="nvarchar" MaxLength="150" />
+          <Property Name="LoginUser" Type="nvarchar" MaxLength="150" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tb_PostList">
+          <Key>
+            <PropertyRef Name="Post_id" />
+          </Key>
+          <Property Name="Post_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Organization_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Category_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Blogger_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PostContent" Type="nvarchar(max)" />
+          <Property Name="EntryDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+          <Property Name="Sub_cat_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tb_SubCategory">
+          <Key>
+            <PropertyRef Name="Sub_cat_id" />
+          </Key>
+          <Property Name="Sub_cat_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sub_cat_Nm" Type="nvarchar" MaxLength="150" />
+          <Property Name="Category_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Entry_Date" Type="datetime" />
+          <Property Name="EditeBy" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tb_UserRegistration">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrganizationNm" Type="nvarchar" MaxLength="150" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="State" Type="nvarchar" MaxLength="150" />
+          <Property Name="Country" Type="nvarchar" MaxLength="150" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+          <Property Name="EntryDate" Type="datetime" />
+        </EntityType>
+        <Function Name="postlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id" Type="numeric" Mode="In" />
+          <Parameter Name="blogCeteogryID" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sp_Blogger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_bloggerdiscription" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_BloggerView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+          <Parameter Name="Org_Id" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="sp_category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Categoryview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_completeorder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Countryfill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Organization" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_pendingorder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_PostView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_subcategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="action" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="db_rajputbookModelStoreContainer">
+          <EntitySet Name="tb_AdminLogin" EntityType="Self.tb_AdminLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_BlogCategory" EntityType="Self.tb_BlogCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_BloggerList" EntityType="Self.tb_BloggerList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_bloggerregistration" EntityType="Self.tb_bloggerregistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_CountryMaster" EntityType="Self.tb_CountryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_OrganizationList" EntityType="Self.tb_OrganizationList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_PostList" EntityType="Self.tb_PostList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_SubCategory" EntityType="Self.tb_SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_UserRegistration" EntityType="Self.tb_UserRegistration" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_rajputbookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_AdminLogin">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_BlogCategory">
+          <Key>
+            <PropertyRef Name="Category_id" />
+          </Key>
+          <Property Name="Category_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_Nm" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_BloggerList">
+          <Key>
+            <PropertyRef Name="Blogger_id" />
+          </Key>
+          <Property Name="Blogger_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BloggerName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Organization_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="Editby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProfilePict" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StreetAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Zipcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProfPic" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tb_bloggerregistration">
+          <Key>
+            <PropertyRef Name="Blogger_id" />
+          </Key>
+          <Property Name="Blogger_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="Editby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProfilePict" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StreetAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Zipcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LoginUser" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Organization_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProfilePictTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_CountryMaster">
+          <Key>
+            <PropertyRef Name="Country_id" />
+          </Key>
+          <Property Name="Country_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country_Nm" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_OrganizationList">
+          <Key>
+            <PropertyRef Name="Organization_id" />
+          </Key>
+          <Property Name="Organization_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="Editby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProfilePict" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StreetAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Zipcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LoginUser" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_PostList">
+          <Key>
+            <PropertyRef Name="Post_id" />
+          </Key>
+          <Property Name="Post_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Organization_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Category_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Blogger_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PostContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sub_cat_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_SubCategory">
+          <Key>
+            <PropertyRef Name="Sub_cat_id" />
+          </Key>
+          <Property Name="Sub_cat_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sub_cat_Nm" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Category_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Entry_Date" Type="DateTime" Precision="3" />
+          <Property Name="EditeBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_UserRegistration">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrganizationNm" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="db_rajputbookEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_AdminLogin" EntityType="Self.tb_AdminLogin" />
+          <EntitySet Name="tb_BlogCategory" EntityType="Self.tb_BlogCategory" />
+          <EntitySet Name="tb_BloggerList" EntityType="Self.tb_BloggerList" />
+          <EntitySet Name="tb_bloggerregistration" EntityType="Self.tb_bloggerregistration" />
+          <EntitySet Name="tb_CountryMaster" EntityType="Self.tb_CountryMaster" />
+          <EntitySet Name="tb_OrganizationList" EntityType="Self.tb_OrganizationList" />
+          <EntitySet Name="tb_PostList" EntityType="Self.tb_PostList" />
+          <EntitySet Name="tb_SubCategory" EntityType="Self.tb_SubCategory" />
+          <EntitySet Name="tb_UserRegistration" EntityType="Self.tb_UserRegistration" />
+          <FunctionImport Name="postlist" ReturnType="Collection(db_rajputbookModel.postlist_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+            <Parameter Name="Id" Mode="In" Type="Decimal" />
+            <Parameter Name="blogCeteogryID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Blogger" ReturnType="Collection(db_rajputbookModel.sp_Blogger_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_bloggerdiscription" ReturnType="Collection(db_rajputbookModel.sp_bloggerdiscription_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_BloggerView" ReturnType="Collection(db_rajputbookModel.sp_BloggerView_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+            <Parameter Name="Org_Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sp_category" ReturnType="Collection(db_rajputbookModel.sp_category_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Categoryview" ReturnType="Collection(db_rajputbookModel.sp_Categoryview_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_completeorder">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Countryfill" ReturnType="Collection(db_rajputbookModel.sp_Countryfill_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Organization" ReturnType="Collection(db_rajputbookModel.sp_Organization_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_pendingorder">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_PostView" ReturnType="Collection(db_rajputbookModel.sp_PostView_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_subcategory" ReturnType="Collection(db_rajputbookModel.sp_subcategory_Result)">
+            <Parameter Name="action" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="postlist_Result">
+          <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="Organization_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="bloggerstatus" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="organizationstatus" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reason" Nullable="true" />
+          <Property Type="Boolean" Name="Active" Nullable="true" />
+          <Property Type="String" Name="organizationname" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="bloggeremailid" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="Blogger_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="bloggername" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Category_Nm" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="Category_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Category_id1" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Sub_cat_Nm" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="Sub_cat_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Image" Nullable="true" />
+          <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PostContent" Nullable="true" />
+          <Property Type="String" Name="PostTitle" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Post_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_Blogger_Result">
+          <Property Type="Decimal" Name="Blogger_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="sp_bloggerdiscription_Result">
+          <Property Type="Decimal" Name="Blogger_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="ProfilePict" Nullable="true" />
+          <Property Type="String" Name="organizationname" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="sp_BloggerView_Result">
+          <Property Type="String" Name="BloggerPP" Nullable="true" />
+          <Property Type="String" Name="BloggerName" Nullable="true" MaxLength="304" />
+          <Property Type="Decimal" Name="Blogger_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="Active" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Editby" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ProfilePict" Nullable="true" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="StreetAddress" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Zipcode" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="LoginUser" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="Organization_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reason" Nullable="true" />
+          <Property Type="String" Name="ProfilePictTest" Nullable="true" />
+          <Property Type="Decimal" Name="Organization_id1" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Name1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="email1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Phone1" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="Active1" Nullable="true" />
+          <Property Type="String" Name="Description1" Nullable="true" />
+          <Property Type="DateTime" Name="EntryDate1" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Editby1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ProfilePict1" Nullable="true" />
+          <Property Type="String" Name="Password1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="StreetAddress1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="City1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="State1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Zipcode1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Country1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="LoginUser1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Status1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reason1" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_category_Result">
+          <Property Type="Decimal" Name="Category_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Category_Nm" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="sp_Categoryview_Result">
+          <Property Type="String" Name="categoryname" Nullable="true" MaxLength="304" />
+          <Property Type="Decimal" Name="Category_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Sub_cat_id" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="sp_Countryfill_Result">
+          <Property Type="Decimal" Name="Country_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Country_Nm" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="sp_Organization_Result">
+          <Property Type="Decimal" Name="Organization_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="sp_PostView_Result">
+          <Property Type="String" Name="PostTitle" Nullable="true" MaxLength="358" />
+          <Property Type="Decimal" Name="Post_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="PostTitle1" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="Active" Nullable="true" />
+          <Property Type="Decimal" Name="Organization_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Category_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Blogger_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="PostContent" Nullable="true" />
+          <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Status" Nullable="true" />
+          <Property Type="String" Name="Reason" Nullable="true" />
+          <Property Type="Decimal" Name="Sub_cat_id" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Image" Nullable="true" />
+          <Property Type="Decimal" Name="Organization_id1" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="Active1" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="EntryDate1" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Editby" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ProfilePict" Nullable="true" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="StreetAddress" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Zipcode" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="LoginUser" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Status1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reason1" Nullable="true" />
+          <Property Type="Decimal" Name="Blogger_id1" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Name1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="email1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Phone1" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="Active2" Nullable="true" />
+          <Property Type="String" Name="Description1" Nullable="true" />
+          <Property Type="DateTime" Name="EntryDate2" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Editby1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ProfilePict1" Nullable="true" />
+          <Property Type="String" Name="Password1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="StreetAddress1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="City1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="State1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Zipcode1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Country1" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="LoginUser1" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="Organization_id2" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Status2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Reason2" Nullable="true" />
+          <Property Type="String" Name="ProfilePictTest" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_subcategory_Result">
+          <Property Type="Decimal" Name="Sub_cat_id" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Sub_cat_Nm" Nullable="true" MaxLength="150" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_rajputbookModelStoreContainer" CdmEntityContainer="db_rajputbookEntities">
+          <EntitySetMapping Name="tb_AdminLogin">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_AdminLogin">
+              <MappingFragment StoreEntitySet="tb_AdminLogin">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_BlogCategory">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_BlogCategory">
+              <MappingFragment StoreEntitySet="tb_BlogCategory">
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Category_Nm" ColumnName="Category_Nm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_BloggerList">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_BloggerList">
+              <MappingFragment StoreEntitySet="tb_BloggerList">
+                <ScalarProperty Name="Blogger_id" ColumnName="Blogger_id" />
+                <ScalarProperty Name="BloggerName" ColumnName="BloggerName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Organization_id" ColumnName="Organization_id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Editby" ColumnName="Editby" />
+                <ScalarProperty Name="ProfilePict" ColumnName="ProfilePict" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ProfPic" ColumnName="ProfPic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_bloggerregistration">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_bloggerregistration">
+              <MappingFragment StoreEntitySet="tb_bloggerregistration">
+                <ScalarProperty Name="Blogger_id" ColumnName="Blogger_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Editby" ColumnName="Editby" />
+                <ScalarProperty Name="ProfilePict" ColumnName="ProfilePict" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="Organization_id" ColumnName="Organization_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="ProfilePictTest" ColumnName="ProfilePictTest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_CountryMaster">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_CountryMaster">
+              <MappingFragment StoreEntitySet="tb_CountryMaster">
+                <ScalarProperty Name="Country_id" ColumnName="Country_id" />
+                <ScalarProperty Name="Country_Nm" ColumnName="Country_Nm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_OrganizationList">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_OrganizationList">
+              <MappingFragment StoreEntitySet="tb_OrganizationList">
+                <ScalarProperty Name="Organization_id" ColumnName="Organization_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Editby" ColumnName="Editby" />
+                <ScalarProperty Name="ProfilePict" ColumnName="ProfilePict" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_PostList">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_PostList">
+              <MappingFragment StoreEntitySet="tb_PostList">
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Organization_id" ColumnName="Organization_id" />
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Blogger_id" ColumnName="Blogger_id" />
+                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Sub_cat_id" ColumnName="Sub_cat_id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SubCategory">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_SubCategory">
+              <MappingFragment StoreEntitySet="tb_SubCategory">
+                <ScalarProperty Name="Sub_cat_id" ColumnName="Sub_cat_id" />
+                <ScalarProperty Name="Sub_cat_Nm" ColumnName="Sub_cat_Nm" />
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Entry_Date" ColumnName="Entry_Date" />
+                <ScalarProperty Name="EditeBy" ColumnName="EditeBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_UserRegistration">
+            <EntityTypeMapping TypeName="db_rajputbookModel.tb_UserRegistration">
+              <MappingFragment StoreEntitySet="tb_UserRegistration">
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="OrganizationNm" ColumnName="OrganizationNm" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="postlist" FunctionName="db_rajputbookModel.Store.postlist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.postlist_Result">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Organization_id" ColumnName="Organization_id" />
+                <ScalarProperty Name="bloggerstatus" ColumnName="bloggerstatus" />
+                <ScalarProperty Name="organizationstatus" ColumnName="organizationstatus" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="organizationname" ColumnName="organizationname" />
+                <ScalarProperty Name="bloggeremailid" ColumnName="bloggeremailid" />
+                <ScalarProperty Name="Blogger_id" ColumnName="Blogger_id" />
+                <ScalarProperty Name="bloggername" ColumnName="bloggername" />
+                <ScalarProperty Name="Category_Nm" ColumnName="Category_Nm" />
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Category_id1" ColumnName="Category_id1" />
+                <ScalarProperty Name="Sub_cat_Nm" ColumnName="Sub_cat_Nm" />
+                <ScalarProperty Name="Sub_cat_id" ColumnName="Sub_cat_id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Blogger" FunctionName="db_rajputbookModel.Store.sp_Blogger">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_Blogger_Result">
+                <ScalarProperty Name="Blogger_id" ColumnName="Blogger_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_bloggerdiscription" FunctionName="db_rajputbookModel.Store.sp_bloggerdiscription">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_bloggerdiscription_Result">
+                <ScalarProperty Name="Blogger_id" ColumnName="Blogger_id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProfilePict" ColumnName="ProfilePict" />
+                <ScalarProperty Name="organizationname" ColumnName="organizationname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_BloggerView" FunctionName="db_rajputbookModel.Store.sp_BloggerView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_BloggerView_Result">
+                <ScalarProperty Name="BloggerPP" ColumnName="BloggerPP" />
+                <ScalarProperty Name="BloggerName" ColumnName="BloggerName" />
+                <ScalarProperty Name="Blogger_id" ColumnName="Blogger_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Editby" ColumnName="Editby" />
+                <ScalarProperty Name="ProfilePict" ColumnName="ProfilePict" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="Organization_id" ColumnName="Organization_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="ProfilePictTest" ColumnName="ProfilePictTest" />
+                <ScalarProperty Name="Organization_id1" ColumnName="Organization_id1" />
+                <ScalarProperty Name="Name1" ColumnName="Name1" />
+                <ScalarProperty Name="email1" ColumnName="email1" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Active1" ColumnName="Active1" />
+                <ScalarProperty Name="Description1" ColumnName="Description1" />
+                <ScalarProperty Name="EntryDate1" ColumnName="EntryDate1" />
+                <ScalarProperty Name="Editby1" ColumnName="Editby1" />
+                <ScalarProperty Name="ProfilePict1" ColumnName="ProfilePict1" />
+                <ScalarProperty Name="Password1" ColumnName="Password1" />
+                <ScalarProperty Name="StreetAddress1" ColumnName="StreetAddress1" />
+                <ScalarProperty Name="City1" ColumnName="City1" />
+                <ScalarProperty Name="State1" ColumnName="State1" />
+                <ScalarProperty Name="Zipcode1" ColumnName="Zipcode1" />
+                <ScalarProperty Name="Country1" ColumnName="Country1" />
+                <ScalarProperty Name="LoginUser1" ColumnName="LoginUser1" />
+                <ScalarProperty Name="Status1" ColumnName="Status1" />
+                <ScalarProperty Name="Reason1" ColumnName="Reason1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_category" FunctionName="db_rajputbookModel.Store.sp_category">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_category_Result">
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Category_Nm" ColumnName="Category_Nm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Categoryview" FunctionName="db_rajputbookModel.Store.sp_Categoryview">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_Categoryview_Result">
+                <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Sub_cat_id" ColumnName="Sub_cat_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_completeorder" FunctionName="db_rajputbookModel.Store.sp_completeorder" />
+          <FunctionImportMapping FunctionImportName="sp_Countryfill" FunctionName="db_rajputbookModel.Store.sp_Countryfill">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_Countryfill_Result">
+                <ScalarProperty Name="Country_id" ColumnName="Country_id" />
+                <ScalarProperty Name="Country_Nm" ColumnName="Country_Nm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Organization" FunctionName="db_rajputbookModel.Store.sp_Organization">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_Organization_Result">
+                <ScalarProperty Name="Organization_id" ColumnName="Organization_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_pendingorder" FunctionName="db_rajputbookModel.Store.sp_pendingorder" />
+          <FunctionImportMapping FunctionImportName="sp_PostView" FunctionName="db_rajputbookModel.Store.sp_PostView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_PostView_Result">
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+                <ScalarProperty Name="PostTitle1" ColumnName="PostTitle1" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Organization_id" ColumnName="Organization_id" />
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Blogger_id" ColumnName="Blogger_id" />
+                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="Sub_cat_id" ColumnName="Sub_cat_id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Organization_id1" ColumnName="Organization_id1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Active1" ColumnName="Active1" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EntryDate1" ColumnName="EntryDate1" />
+                <ScalarProperty Name="Editby" ColumnName="Editby" />
+                <ScalarProperty Name="ProfilePict" ColumnName="ProfilePict" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="Status1" ColumnName="Status1" />
+                <ScalarProperty Name="Reason1" ColumnName="Reason1" />
+                <ScalarProperty Name="Blogger_id1" ColumnName="Blogger_id1" />
+                <ScalarProperty Name="Name1" ColumnName="Name1" />
+                <ScalarProperty Name="email1" ColumnName="email1" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Active2" ColumnName="Active2" />
+                <ScalarProperty Name="Description1" ColumnName="Description1" />
+                <ScalarProperty Name="EntryDate2" ColumnName="EntryDate2" />
+                <ScalarProperty Name="Editby1" ColumnName="Editby1" />
+                <ScalarProperty Name="ProfilePict1" ColumnName="ProfilePict1" />
+                <ScalarProperty Name="Password1" ColumnName="Password1" />
+                <ScalarProperty Name="StreetAddress1" ColumnName="StreetAddress1" />
+                <ScalarProperty Name="City1" ColumnName="City1" />
+                <ScalarProperty Name="State1" ColumnName="State1" />
+                <ScalarProperty Name="Zipcode1" ColumnName="Zipcode1" />
+                <ScalarProperty Name="Country1" ColumnName="Country1" />
+                <ScalarProperty Name="LoginUser1" ColumnName="LoginUser1" />
+                <ScalarProperty Name="Organization_id2" ColumnName="Organization_id2" />
+                <ScalarProperty Name="Status2" ColumnName="Status2" />
+                <ScalarProperty Name="Reason2" ColumnName="Reason2" />
+                <ScalarProperty Name="ProfilePictTest" ColumnName="ProfilePictTest" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_subcategory" FunctionName="db_rajputbookModel.Store.sp_subcategory">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_rajputbookModel.sp_subcategory_Result">
+                <ScalarProperty Name="Sub_cat_id" ColumnName="Sub_cat_id" />
+                <ScalarProperty Name="Sub_cat_Nm" ColumnName="Sub_cat_Nm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

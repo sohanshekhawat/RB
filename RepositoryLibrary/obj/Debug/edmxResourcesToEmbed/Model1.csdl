@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_rajputbookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_AdminLogin">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_BlogCategory">
+    <Key>
+      <PropertyRef Name="Category_id" />
+    </Key>
+    <Property Name="Category_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category_Nm" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_BloggerList">
+    <Key>
+      <PropertyRef Name="Blogger_id" />
+    </Key>
+    <Property Name="Blogger_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BloggerName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Organization_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="Editby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePict" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Zipcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProfPic" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tb_bloggerregistration">
+    <Key>
+      <PropertyRef Name="Blogger_id" />
+    </Key>
+    <Property Name="Blogger_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="Editby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePict" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Zipcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LoginUser" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Organization_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePictTest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_CountryMaster">
+    <Key>
+      <PropertyRef Name="Country_id" />
+    </Key>
+    <Property Name="Country_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country_Nm" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_OrganizationList">
+    <Key>
+      <PropertyRef Name="Organization_id" />
+    </Key>
+    <Property Name="Organization_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="Editby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePict" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Zipcode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="LoginUser" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_PostList">
+    <Key>
+      <PropertyRef Name="Post_id" />
+    </Key>
+    <Property Name="Post_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PostTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Organization_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Category_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Blogger_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PostContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sub_cat_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_SubCategory">
+    <Key>
+      <PropertyRef Name="Sub_cat_id" />
+    </Key>
+    <Property Name="Sub_cat_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sub_cat_Nm" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Category_id" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Entry_Date" Type="DateTime" Precision="3" />
+    <Property Name="EditeBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_UserRegistration">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrganizationNm" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="db_rajputbookEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_AdminLogin" EntityType="Self.tb_AdminLogin" />
+    <EntitySet Name="tb_BlogCategory" EntityType="Self.tb_BlogCategory" />
+    <EntitySet Name="tb_BloggerList" EntityType="Self.tb_BloggerList" />
+    <EntitySet Name="tb_bloggerregistration" EntityType="Self.tb_bloggerregistration" />
+    <EntitySet Name="tb_CountryMaster" EntityType="Self.tb_CountryMaster" />
+    <EntitySet Name="tb_OrganizationList" EntityType="Self.tb_OrganizationList" />
+    <EntitySet Name="tb_PostList" EntityType="Self.tb_PostList" />
+    <EntitySet Name="tb_SubCategory" EntityType="Self.tb_SubCategory" />
+    <EntitySet Name="tb_UserRegistration" EntityType="Self.tb_UserRegistration" />
+    <FunctionImport Name="postlist" ReturnType="Collection(db_rajputbookModel.postlist_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="Id" Mode="In" Type="Decimal" />
+      <Parameter Name="blogCeteogryID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Blogger" ReturnType="Collection(db_rajputbookModel.sp_Blogger_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_bloggerdiscription" ReturnType="Collection(db_rajputbookModel.sp_bloggerdiscription_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_BloggerView" ReturnType="Collection(db_rajputbookModel.sp_BloggerView_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+      <Parameter Name="Org_Id" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="sp_category" ReturnType="Collection(db_rajputbookModel.sp_category_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Categoryview" ReturnType="Collection(db_rajputbookModel.sp_Categoryview_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_completeorder">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Countryfill" ReturnType="Collection(db_rajputbookModel.sp_Countryfill_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_Organization" ReturnType="Collection(db_rajputbookModel.sp_Organization_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_pendingorder">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_PostView" ReturnType="Collection(db_rajputbookModel.sp_PostView_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_subcategory" ReturnType="Collection(db_rajputbookModel.sp_subcategory_Result)">
+      <Parameter Name="action" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="postlist_Result">
+    <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Organization_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="bloggerstatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="organizationstatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason" Nullable="true" />
+    <Property Type="Boolean" Name="Active" Nullable="true" />
+    <Property Type="String" Name="organizationname" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="bloggeremailid" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="Blogger_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="bloggername" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Category_Nm" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="Category_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Category_id1" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Sub_cat_Nm" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="Sub_cat_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PostContent" Nullable="true" />
+    <Property Type="String" Name="PostTitle" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Post_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_Blogger_Result">
+    <Property Type="Decimal" Name="Blogger_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_bloggerdiscription_Result">
+    <Property Type="Decimal" Name="Blogger_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="ProfilePict" Nullable="true" />
+    <Property Type="String" Name="organizationname" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_BloggerView_Result">
+    <Property Type="String" Name="BloggerPP" Nullable="true" />
+    <Property Type="String" Name="BloggerName" Nullable="true" MaxLength="304" />
+    <Property Type="Decimal" Name="Blogger_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="150" />
+    <Property Type="Boolean" Name="Active" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Editby" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProfilePict" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="StreetAddress" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Zipcode" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="LoginUser" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="Organization_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason" Nullable="true" />
+    <Property Type="String" Name="ProfilePictTest" Nullable="true" />
+    <Property Type="Decimal" Name="Organization_id1" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Name1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="email1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Phone1" Nullable="true" MaxLength="150" />
+    <Property Type="Boolean" Name="Active1" Nullable="true" />
+    <Property Type="String" Name="Description1" Nullable="true" />
+    <Property Type="DateTime" Name="EntryDate1" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Editby1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProfilePict1" Nullable="true" />
+    <Property Type="String" Name="Password1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="StreetAddress1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="City1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="State1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Zipcode1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Country1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="LoginUser1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Status1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason1" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_category_Result">
+    <Property Type="Decimal" Name="Category_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Category_Nm" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_Categoryview_Result">
+    <Property Type="String" Name="categoryname" Nullable="true" MaxLength="304" />
+    <Property Type="Decimal" Name="Category_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Sub_cat_id" Nullable="false" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="sp_Countryfill_Result">
+    <Property Type="Decimal" Name="Country_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Country_Nm" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_Organization_Result">
+    <Property Type="Decimal" Name="Organization_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_PostView_Result">
+    <Property Type="String" Name="PostTitle" Nullable="true" MaxLength="358" />
+    <Property Type="Decimal" Name="Post_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="PostTitle1" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Active" Nullable="true" />
+    <Property Type="Decimal" Name="Organization_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Category_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Blogger_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="PostContent" Nullable="true" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Status" Nullable="true" />
+    <Property Type="String" Name="Reason" Nullable="true" />
+    <Property Type="Decimal" Name="Sub_cat_id" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Image" Nullable="true" />
+    <Property Type="Decimal" Name="Organization_id1" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="150" />
+    <Property Type="Boolean" Name="Active1" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="DateTime" Name="EntryDate1" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Editby" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProfilePict" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="StreetAddress" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Zipcode" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="LoginUser" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Status1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason1" Nullable="true" />
+    <Property Type="Decimal" Name="Blogger_id1" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Name1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="email1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Phone1" Nullable="true" MaxLength="150" />
+    <Property Type="Boolean" Name="Active2" Nullable="true" />
+    <Property Type="String" Name="Description1" Nullable="true" />
+    <Property Type="DateTime" Name="EntryDate2" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Editby1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProfilePict1" Nullable="true" />
+    <Property Type="String" Name="Password1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="StreetAddress1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="City1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="State1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Zipcode1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Country1" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="LoginUser1" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="Organization_id2" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Status2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Reason2" Nullable="true" />
+    <Property Type="String" Name="ProfilePictTest" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_subcategory_Result">
+    <Property Type="Decimal" Name="Sub_cat_id" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="Sub_cat_Nm" Nullable="true" MaxLength="150" />
+  </ComplexType>
+</Schema>

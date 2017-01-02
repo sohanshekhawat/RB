@@ -1,0 +1,10 @@
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\bin\Debug\RepositoryLibrary.dll.config
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\bin\Debug\RepositoryLibrary.dll
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\bin\Debug\RepositoryLibrary.pdb
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\bin\Debug\EntityFramework.dll
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\bin\Debug\EntityFramework.SqlServer.dll
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\bin\Debug\EntityFramework.xml
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\bin\Debug\EntityFramework.SqlServer.xml
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\obj\Debug\RepositoryLibrary.csprojResolveAssemblyReference.cache
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\obj\Debug\RepositoryLibrary.dll
+D:\BACKUP\Learning\aspnet\BlogPost\RepositoryLibrary\obj\Debug\RepositoryLibrary.pdb

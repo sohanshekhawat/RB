@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_rajputbookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_AdminLogin">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tb_BlogCategory">
+    <Key>
+      <PropertyRef Name="Category_id" />
+    </Key>
+    <Property Name="Category_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category_Nm" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tb_BloggerList">
+    <Key>
+      <PropertyRef Name="Blogger_id" />
+    </Key>
+    <Property Name="Blogger_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BloggerName" Type="nvarchar" MaxLength="150" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Organization_id" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="EntryDate" Type="datetime" />
+    <Property Name="Editby" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfilePict" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" />
+    <Property Name="StreetAddress" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="150" />
+    <Property Name="State" Type="nvarchar" MaxLength="150" />
+    <Property Name="Zipcode" Type="nvarchar" MaxLength="150" />
+    <Property Name="Country" Type="nvarchar" MaxLength="150" />
+    <Property Name="Reason" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfPic" Type="image" />
+  </EntityType>
+  <EntityType Name="tb_bloggerregistration">
+    <Key>
+      <PropertyRef Name="Blogger_id" />
+    </Key>
+    <Property Name="Blogger_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="EntryDate" Type="datetime" />
+    <Property Name="Editby" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfilePict" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" />
+    <Property Name="StreetAddress" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="150" />
+    <Property Name="State" Type="nvarchar" MaxLength="150" />
+    <Property Name="Zipcode" Type="nvarchar" MaxLength="150" />
+    <Property Name="Country" Type="nvarchar" MaxLength="150" />
+    <Property Name="LoginUser" Type="nvarchar" MaxLength="150" />
+    <Property Name="Organization_id" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reason" Type="nvarchar(max)" />
+    <Property Name="ProfilePictTest" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_CountryMaster">
+    <Key>
+      <PropertyRef Name="Country_id" />
+    </Key>
+    <Property Name="Country_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country_Nm" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tb_OrganizationList">
+    <Key>
+      <PropertyRef Name="Organization_id" />
+    </Key>
+    <Property Name="Organization_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="EntryDate" Type="datetime" />
+    <Property Name="Editby" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfilePict" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" />
+    <Property Name="StreetAddress" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="150" />
+    <Property Name="State" Type="nvarchar" MaxLength="150" />
+    <Property Name="Zipcode" Type="nvarchar" MaxLength="150" />
+    <Property Name="Country" Type="nvarchar" MaxLength="150" />
+    <Property Name="LoginUser" Type="nvarchar" MaxLength="150" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reason" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_PostList">
+    <Key>
+      <PropertyRef Name="Post_id" />
+    </Key>
+    <Property Name="Post_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Organization_id" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Category_id" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Blogger_id" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PostContent" Type="nvarchar(max)" />
+    <Property Name="EntryDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar(max)" />
+    <Property Name="Reason" Type="nvarchar(max)" />
+    <Property Name="Sub_cat_id" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Image" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_SubCategory">
+    <Key>
+      <PropertyRef Name="Sub_cat_id" />
+    </Key>
+    <Property Name="Sub_cat_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sub_cat_Nm" Type="nvarchar" MaxLength="150" />
+    <Property Name="Category_id" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Entry_Date" Type="datetime" />
+    <Property Name="EditeBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tb_UserRegistration">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganizationNm" Type="nvarchar" MaxLength="150" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="150" />
+    <Property Name="State" Type="nvarchar" MaxLength="150" />
+    <Property Name="Country" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="EntryDate" Type="datetime" />
+  </EntityType>
+  <Function Name="postlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="numeric" Mode="In" />
+    <Parameter Name="blogCeteogryID" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="sp_Blogger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_bloggerdiscription" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_BloggerView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+    <Parameter Name="Org_Id" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="sp_category" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Categoryview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_completeorder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Countryfill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Organization" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_pendingorder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_PostView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_subcategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="action" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="db_rajputbookModelStoreContainer">
+    <EntitySet Name="tb_AdminLogin" EntityType="Self.tb_AdminLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_BlogCategory" EntityType="Self.tb_BlogCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_BloggerList" EntityType="Self.tb_BloggerList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_bloggerregistration" EntityType="Self.tb_bloggerregistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_CountryMaster" EntityType="Self.tb_CountryMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_OrganizationList" EntityType="Self.tb_OrganizationList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_PostList" EntityType="Self.tb_PostList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_SubCategory" EntityType="Self.tb_SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_UserRegistration" EntityType="Self.tb_UserRegistration" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

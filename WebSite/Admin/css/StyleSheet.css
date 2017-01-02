@@ -1,0 +1,85 @@
+﻿.modalBackground
+{
+    background-color: Black;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}
+.modalPopup
+{
+    background-color: #FFFFFF;
+    width: 500px;
+    border: 2px solid Black;
+    border-radius: 12px;
+    padding: 0px;
+    margin: 0px;
+    max-height: 500px;
+    max-width: 500px;
+}
+.modalPopup .header
+{
+    background: rgba(199,193,199,1);
+    background: -moz-linear-gradient(top, rgba(199,193,199,1) 0%, rgba(254,254,254,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(199,193,199,1)), color-stop(100%, rgba(254,254,254,1)));
+    background: -webkit-linear-gradient(top, rgba(199,193,199,1) 0%, rgba(254,254,254,1) 100%);
+    background: -o-linear-gradient(top, rgba(199,193,199,1) 0%, rgba(254,254,254,1) 100%);
+    background: -ms-linear-gradient(top, rgba(199,193,199,1) 0%, rgba(254,254,254,1) 100%);
+    background: linear-gradient(to bottom, rgba(199,193,199,1) 0%, rgba(254,254,254,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7c1c7', endColorstr='#fefefe', GradientType=0 );
+    height: 30px;
+    color: White;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+.modalPopup .body
+{
+    max-height: 500px;
+    max-width: 500px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.modalPopup .footer
+{
+    padding: 6px;
+    text-align: center;
+}
+.modalPopup .yes, .modalPopup .no
+{
+    height: 30px;
+    color: White;
+    line-height: 23px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.modalPopup .yes
+{
+    background: rgba(76,76,76,1);
+    background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 23%, rgba(17,17,17,1) 48%, rgba(43,43,43,1) 76%, rgba(19,19,19,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(76,76,76,1)), color-stop(23%, rgba(89,89,89,1)), color-stop(48%, rgba(17,17,17,1)), color-stop(76%, rgba(43,43,43,1)), color-stop(100%, rgba(19,19,19,1)));
+    background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 23%, rgba(17,17,17,1) 48%, rgba(43,43,43,1) 76%, rgba(19,19,19,1) 100%);
+    background: -o-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 23%, rgba(17,17,17,1) 48%, rgba(43,43,43,1) 76%, rgba(19,19,19,1) 100%);
+    background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 23%, rgba(17,17,17,1) 48%, rgba(43,43,43,1) 76%, rgba(19,19,19,1) 100%);
+    border: 1px solid #000;
+}
+.modalPopup .no
+{
+    background-color: #9F9F9F;
+    border: 1px solid #5C5C5C;
+}
+.imgbtn
+{
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-top: 1px;
+    padding-right: 5px;
+}
