@@ -16,148 +16,49 @@ public partial class index : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            Oranization();
-
+            GetOranizationList();
         }
     }
-
-
 
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
         try
         {
-            dbobj = new BlogPostDataClassesDataContext(con.cn);
-           
-           
-            if (rbO.Checked == true)
+            var user = RepositoryCollection.Instance.UserManageRepo.IsEmailMobileAlreadyExist(txtemail.Text, txtphone.Text);
+
+            if (user == null)
             {
-                tb_OrganizationList tbobj = new tb_OrganizationList();
-                decimal maxno = 0;
-                if (imgCropped.Value != null && imgCropped.Value.Trim() != "")
+                var emailActivationCode = Guid.NewGuid().ToString();
+                var mobileActivationCode = Guid.NewGuid().ToString();
+                if (rbO.Checked == true)
                 {
-                    string base64 = imgCropped.Value.ToString();
-                    byte[] bytes = Convert.FromBase64String(base64.Split(',')[1]);
+                    var tbobj = GetOrganizationObject(emailActivationCode, mobileActivationCode);
+                    RepositoryCollection.Instance.OrgRepo.CreateNew(tbobj);
+                }
+                else if (rbB.Checked == true)
+                {
+                    var blogger = GetBloggerObject(emailActivationCode, mobileActivationCode);
+                    RepositoryCollection.Instance.BloggerRepo.CreateNew(blogger);
+                }
 
-                    int count = dbobj.tb_OrganizationLists.Count();
-                    if (count > 0)
-                    {
-                        maxno = dbobj.tb_OrganizationLists.Max(T => T.Organization_id);
-                    }
-                    else { maxno = +1; }
-                    string pathCropped = Server.MapPath("~/siteimages/OrganizationImg/" + Convert.ToString(maxno + 1) + txtOrgName.Text.Replace(" ", "") + ".png");
-                    using (System.IO.FileStream stream = new System.IO.FileStream(pathCropped, System.IO.FileMode.Create))
-                    {
-                        stream.Write(bytes, 0, bytes.Length);
-                        stream.Flush();
-                    }
-                }
-                tbobj.ProfilePict =  Convert.ToString(maxno + 1) + txtOrgName.Text + ".png";
-                if (imgCropped.Value.ToString() != null && imgCropped.Value.Trim() != "")
-                {
-                    tbobj.ProfilePict = Convert.ToString(maxno + 1) + txtOrgName.Text.Replace(" ", "") + ".png";
-                }
-                else if (lbloldprofilepict.Text.ToString() != null && lbloldprofilepict.Text.ToString() != "")
-                {
-                    tbobj.ProfilePict = lbloldprofilepict.Text;
-                }
-                else
-                {
-                    tbobj.ProfilePict = "noimage.png";
-                }
-                tbobj.Name = txtOrgName.Text;
-                tbobj.email = txtemail.Text;
-                tbobj.Phone = txtphone.Text;
-                tbobj.StreetAddress = txtStreetAddress.Text;
-                tbobj.Zipcode = txtzipcode.Text;
-                tbobj.City = txtcity.Text;
-                tbobj.State = txtstate.Text;
-                tbobj.Phone = txtphone.Text;
-                tbobj.Password = txtpassword.Text;
-                tbobj.Country = txtcontry.Text;
-                tbobj.EntryDate = DateTime.Now.Date;
-                tbobj.Status = "Pending";
-                if (rbO.Visible == true)
-                {
-                    tbobj.LoginUser = rbO.Text;
-                }
-                else
-                {
-                    tbobj.LoginUser = rbB.Text;
-                }
-                tbobj.Active = false;
+                EmailSender emailSender = new EmailSender();
+                emailSender.SendRegistrationEmail(txtemail.Text, txtName.Text, emailActivationCode);
 
-                tbobj.Password = txtpassword.Text;
-                dbobj.tb_OrganizationLists.InsertOnSubmit(tbobj);
-                dbobj.SubmitChanges();
                 Response.Redirect("ThankYou.aspx");
                 ClearData();
-                // Clear All Field
-
             }
-            else if (rbB.Checked == true)
+            else if (user.Mobile.Equals(txtphone.Text, StringComparison.OrdinalIgnoreCase))
             {
-                decimal maxno = 0;
-                if (imgCropped.Value != null && imgCropped.Value.Trim() != "")
-                {
-                    string base64 = imgCropped.Value.ToString();
-                    byte[] bytes = Convert.FromBase64String(base64.Split(',')[1]);
-
-                    int count = dbobj.tb_bloggerregistrations.Count();
-                    if (count > 0)
-                    {
-                        maxno = dbobj.tb_bloggerregistrations.Max(T => T.Blogger_id);
-                    }
-                    else { maxno = +1; }
-                    string pathCropped = Server.MapPath("~/siteimages/BloggerImg/" + Convert.ToString(maxno + 1) + txtOrgName.Text.Replace(" ", "") + ".png");
-                    using (System.IO.FileStream stream = new System.IO.FileStream(pathCropped, System.IO.FileMode.Create))
-                    {
-                        stream.Write(bytes, 0, bytes.Length);
-                        stream.Flush();
-                    }
-                }
-                dbobj = new BlogPostDataClassesDataContext(con.cn);
-                tb_bloggerregistration tbobjB = new tb_bloggerregistration();
-                tbobjB.ProfilePict = Convert.ToString(maxno + 1) + txtOrgName.Text + ".png";
-                if (imgCropped.Value.ToString() != null && imgCropped.Value.Trim() != "")
-                {
-                    tbobjB.ProfilePict = Convert.ToString(maxno + 1) + txtOrgName.Text.Replace(" ", "") + ".png";
-                }
-                else if (lbloldprofilepict.Text.ToString() != null && lbloldprofilepict.Text.ToString() != "")
-                {
-                    tbobjB.ProfilePict = lbloldprofilepict.Text;
-                }
-                else
-                {
-                    tbobjB.ProfilePict = "noimage.png";
-                }
-                tbobjB.Name = txtOrgName.Text;
-                tbobjB.email = txtemail.Text;
-                tbobjB.Phone = txtphone.Text;
-                tbobjB.StreetAddress = txtStreetAddress.Text;
-                tbobjB.Zipcode = txtzipcode.Text;
-                tbobjB.City = txtcity.Text;
-                tbobjB.State = txtstate.Text;
-                tbobjB.Phone = txtphone.Text;
-                tbobjB.Organization_id = Convert.ToInt32(cmbOrganization.SelectedValue);
-                tbobjB.Password = txtpassword.Text;
-                tbobjB.Country = txtcontry.Text;
-                tbobjB.EntryDate = DateTime.Now.Date;
-                tbobjB.Status = "Pending";
-
-                tbobjB.Active = false;
-                tbobjB.Password = txtpassword.Text;
-                dbobj.tb_bloggerregistrations.InsertOnSubmit(tbobjB);
-                dbobj.SubmitChanges();
-                Response.Redirect("ThankYou.aspx");
-                ClearData();
-                // Clear All Field
-
+                RegularExpressionValidator3.ErrorMessage = "Mobile is already registered.";
+                RegularExpressionValidator3.IsValid = false;
             }
-
-
+            else
+            {
+                RegularExpressionValidator1.ErrorMessage = "Email is already registered.";
+                RegularExpressionValidator1.IsValid = false;
+            }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
 
         }
@@ -171,7 +72,7 @@ public partial class index : System.Web.UI.Page
             txtemail.Text = string.Empty;
             txtphone.Text = string.Empty;
             txtStreetAddress.Text = string.Empty;
-            txtOrgName.Text = string.Empty;
+            txtName.Text = string.Empty;
             txtphone.Text = string.Empty;
             txtcity.Text = string.Empty;
             txtstate.Text = string.Empty;
@@ -182,6 +83,7 @@ public partial class index : System.Web.UI.Page
             cmbOrganization.SelectedIndex = 0;
             txtcontry.Text = "";
             txtemail.Text = "";
+            transl2.InnerText = "";
         }
         catch (Exception ex)
         {
@@ -192,19 +94,21 @@ public partial class index : System.Web.UI.Page
     {
         cmbOrganization.Visible = false;
     }
+
     protected void rbB_CheckedChanged(object sender, EventArgs e)
     {
         cmbOrganization.Visible = true;
     }
-    public void Oranization()
+
+    public void GetOranizationList()
     {
         try
         {
-            dbobj = new BlogPostDataClassesDataContext(con.cn);
-            var results = dbobj.sp_Organization();
+            var results = RepositoryCollection.Instance.MasterDataRepo.GetOrganisationList();
+            //dbobj = new BlogPostDataClassesDataContext(con.cn);
+            //var results = dbobj.sp_Organization();
             if (results != null)
             {
-
                 cmbOrganization.DataSource = results;
                 cmbOrganization.DataTextField = "Name";
                 cmbOrganization.DataValueField = "Organization_id";
@@ -244,10 +148,124 @@ public partial class index : System.Web.UI.Page
         filepath = "~/cropimages/" + cfname;
         return filepath;
     }
-
     protected void Button1_Click(object sender, EventArgs e)
     {
+    }
+    
+    private tb_OrganizationList GetOrganizationObject(string emailActivationCode, string mobileActivationCode)
+    {
+        tb_OrganizationList tbobj = new tb_OrganizationList();
+        
+        if (imgCropped.Value.ToString() != null && imgCropped.Value.Trim() != "")
+        {
+            var imgName = GetImageName("OrganizationImg");
+            tbobj.ProfilePict = imgName;
+        }
+        else if (lbloldprofilepict.Text.ToString() != null && lbloldprofilepict.Text.ToString() != "")
+        {
+            tbobj.ProfilePict = lbloldprofilepict.Text;
+        }
+        else
+        {
+            tbobj.ProfilePict = "noimage.png";
+        }
 
+        tbobj.Name = txtName.Text;
+        tbobj.email = txtemail.Text;
+        tbobj.Phone = txtphone.Text;
+        tbobj.StreetAddress = txtStreetAddress.Text;
+        tbobj.Zipcode = txtzipcode.Text;
+        tbobj.City = txtcity.Text;
+        tbobj.State = txtstate.Text;
+        tbobj.Phone = txtphone.Text;
+        tbobj.Password = txtpassword.Text;
+        tbobj.Country = txtcontry.Text;
+        tbobj.EntryDate = DateTime.Now.Date;
+        tbobj.Status = "Pending";
+        tbobj.Description = transl2.InnerText;
+        if (rbO.Visible == true)
+        {
+            tbobj.LoginUser = rbO.Text;
+        }
+        else
+        {
+            tbobj.LoginUser = rbB.Text;
+        }
+        tbobj.Active = false;
+
+        tbobj.EmailCode = emailActivationCode;
+        tbobj.EmailVerified = false;
+
+        tbobj.MobileCode = mobileActivationCode;
+        tbobj.MobileVerified = false;
+
+        return tbobj;        
     }
 
+    private tb_bloggerregistration GetBloggerObject(string emailActivationCode, string mobileActivationCode)
+    {
+        tb_bloggerregistration tbobjB = new tb_bloggerregistration();
+
+        var imgName = GetImageName("BloggerImg");
+        
+        if (! string.IsNullOrWhiteSpace(imgName))
+        {
+            tbobjB.ProfilePict = imgName;
+        }
+        else if (lbloldprofilepict.Text.ToString() != null && lbloldprofilepict.Text.ToString() != "")
+        {
+            tbobjB.ProfilePict = lbloldprofilepict.Text;
+        }
+        else
+        {
+            tbobjB.ProfilePict = "noimage.png";
+        }
+
+        tbobjB.Name = txtName.Text;
+        tbobjB.email = txtemail.Text;
+        tbobjB.Phone = txtphone.Text;
+        tbobjB.StreetAddress = txtStreetAddress.Text;
+        tbobjB.Zipcode = txtzipcode.Text;
+        tbobjB.City = txtcity.Text;
+        tbobjB.State = txtstate.Text;
+        tbobjB.Phone = txtphone.Text;
+        tbobjB.Organization_id = Convert.ToInt32(cmbOrganization.SelectedValue);
+        tbobjB.Password = txtpassword.Text;
+        tbobjB.Country = txtcontry.Text;
+        tbobjB.EntryDate = DateTime.Now.Date;
+        tbobjB.Status = "Pending";
+        tbobjB.Description = transl2.InnerText;
+
+
+        tbobjB.EmailCode = emailActivationCode;
+        tbobjB.EmailVerified = false;
+
+        tbobjB.MobileCode = mobileActivationCode;
+        tbobjB.MobileVerified = false;
+        tbobjB.Active = false;
+
+
+        return tbobjB;
+    }
+    
+    private string GetImageName(string imageFolder)
+    {
+        string imageName=string.Empty;
+        if (imgCropped.Value != null && imgCropped.Value.Trim() != "")
+        {
+            string base64 = imgCropped.Value.ToString();
+            byte[] bytes = Convert.FromBase64String(base64.Split(',')[1]);
+
+            imageName = Guid.NewGuid() + ".png";
+            string pathCropped = Server.MapPath("~/siteimages/" + imageFolder + "/" + imageName);
+            using (System.IO.FileStream stream = new System.IO.FileStream(pathCropped, System.IO.FileMode.Create))
+            {
+                stream.Write(bytes, 0, bytes.Length);
+                stream.Flush();
+            }
+
+            return imageName;
+        }
+        return imageName;
+    }
 }

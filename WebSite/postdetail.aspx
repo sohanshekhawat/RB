@@ -78,7 +78,7 @@
 		});
 	</script>
 	<form id="form1" runat="server">
-		<div id="main" class="header-style1">
+	<div id="main" class="header-style1">
 			<header class="header-wrapper clearfix">
             	 <uc:Header ID="head" runat="server" /><!-- .header -->
 	       </header>
@@ -88,8 +88,9 @@
 				<!-- End Main Banner -->
 				<div class="main-content mag-content clearfix">
 					<div class="row blog-content" data-stickyparent>
-						<div class="col-md-8" data-stickycolumn id="postde" runat="server">
-						</div>
+						
+                        <div class="col-md-8" data-stickycolumn id="postde" runat="server" />
+						
 						<!-- End Left big column -->
 						<div class="col-md-4" data-stickycolumn>
 							<aside class="sidebar clearfix">

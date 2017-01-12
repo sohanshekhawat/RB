@@ -16,11 +16,38 @@
 .heading_bottom a:hover{color:#9bbc15}
 .social_media{padding:20px 0; width:235px; margin: auto;}
 .social_media a{margin:0 5px}
-.login_bg input.social_textbox{border:solid 1px #ddd;padding:15px;margin-bottom:20px;color:#333;font-size:18px;
+
+/*.login_bg input.social_textbox{border:solid 1px #ddd;padding:15px;margin-bottom:20px;color:#333;font-size:18px;
                                border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box
 }
+
 .login_bg input.social_Drop{border:solid 1px #ddd;padding:15px;width:100px;height:40px;margin-bottom:20px;color:#333;font-size:18px;
                                border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+
+.login_bg input.social_checkbox{border:solid 1px #ddd;padding:15px;margin-bottom:20px;color:#333;font-size:18px;
+                               border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+
+
+
+.login_bg input.social_textarea{border:solid 1px #ddd;padding:15px;margin-bottom:20px;color:#333;font-size:18px;height: 250px; width: 95%;
+                               border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box
+}*/
+
+.login_bg input.social_textbox{border:solid 1px #ddd;padding:5px;margin-bottom:5px;color:#333;font-size:15px;
+                               border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box
+}
+
+.login_bg input.social_Drop{border:solid 1px #ddd;padding:5px;width:100px;height:40px;margin-bottom:5px;color:#333;font-size:15px;
+                               border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+
+.login_bg input.social_checkbox{border:solid 1px #ddd;padding:5px;margin-bottom:5px;color:#333;font-size:18px;
+                               border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+
+.login_bg input.social_textarea{border:solid 1px #ddd;padding:5px;margin-bottom:5px;color:#333;font-size:15px;height: 250px; width: 95%;
+                               border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box
+}
+
+
 .login_bg input.green_btn{width:100%;color:#fff;font-size:18px;font-weight:700;background-color:#04677C;border:none;height:58px;cursor:pointer;margin-bottom:20px;text-shadow:1px 1px 0 #000;-moz-text-shadow:1px 1px 0 #000;-webkit-text-shadow:1px 1px 0 #000;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
 .login_bg input.green_btn:hover{background-color:#819d0e}
 .login_content{width:675px;text-align:center;font-size:24px;padding-top:50px;float:right}
@@ -34,7 +61,7 @@
 .signup_section .login_bg .heading_bottom{font-size:14px}
 .signup_section .login_bg .heading_bottom a{color:#00b5d9}
 .signup_section .login_bg .heading_bottom a:hover{color:#058da8}
-#UserLoginForm, #UserRegisterForm{ padding-top:20px;}
+#UserLoginForm, #UserRegisterForm{ padding-top:10px;}
 .social_media span{ float:left; margin-top:25px; color:#a4a2a2;}
 .or{ color:#a4a2a2;}
 @media only screen and (min-width:991px) and (max-width:1129px) {

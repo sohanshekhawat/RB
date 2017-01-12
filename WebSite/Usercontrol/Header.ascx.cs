@@ -9,6 +9,18 @@ public partial class Usercontrol_Header : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if(!Page.IsPostBack)
+        {
+            if (Session["loggedinuser"] == null)
+            {
+                logindiv.Visible = true;
+                logoffdiv.Visible = false;
+            }
+            else
+            {
+                logindiv.Visible = false;
+                logoffdiv.Visible = true;
+            }
+        }
     }
 }

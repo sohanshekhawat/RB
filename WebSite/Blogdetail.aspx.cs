@@ -29,11 +29,9 @@ public partial class Blogdetail : System.Web.UI.Page
                 blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<div class=\"author-meta\">";
                 blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<h3 class=\"author-title\"><a href=#>" + item.Name + "</a></h3>";
                 blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<p class=\"author-bio\">" + item.Description + "</p>";
-                blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<div class=\"author-page-contact\">";
-                blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<a href=#><i class=\"fa fa-envelope-o\"></i></a>";
-                blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<a href=# target=\"_blank\"><i class=\"fa fa-link\"></i></a>";
-                blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<a href=# target=\"_blank\"><i class=\"fa fa-twitter\"></i></a>";
-                blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<a href=# target=\"_blank\"><i class=\"fa fa-instagram\"></i></a></div></div>";
+            blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<div class=\"author-page-contact\"></div>";
+            blogerdetail.InnerHtml = blogerdetail.InnerHtml + "<a style=\"cursor:pointer\"><img id =\"share_button\" src=\"img/facebook.png\" /></a></div>";
+
         }
         catch (Exception)
         {
@@ -51,14 +49,9 @@ public partial class Blogdetail : System.Web.UI.Page
             var ftd = RepositoryCollection.Instance.PostRepo.GetAllPostByBlogger(id);
             foreach (var item in ftd)
             {
-                postall.InnerHtml = postall.InnerHtml + " <article class=\"simple-post simple-big clearfix\"> ";
-                //postall.InnerHtml = postall.InnerHtml + " <div class=\"simple-thumb\" style=\"width:160px;\">";
-                //postall.InnerHtml = postall.InnerHtml + "<a href=#><img style=\"height:115px;width:170px\" src=siteimages/postImg/" + item.Image + " alt=\"Rajput Book\"></a></div>";
-                //postall.InnerHtml = postall.InnerHtml + "<header><p class=\"simple-share\"><a href=#>" + item.organizationname + "</a> / by <a href=# style=\"color:#45619D;font-size:14px;font-weight:bold\">" + item.bloggername + "</a>  ";
-
-                postall.InnerHtml = postall.InnerHtml + "<h3><a href=ostdetail.aspx?Id=" + item.Post_id + ">" + item.PostTitle + "</a></h3>";
-                postall.InnerHtml = postall.InnerHtml + " <span>" + item.EntryDate + "</span>";
-
+                bloggerposts.InnerHtml = bloggerposts.InnerHtml + " <article class=\"simple-post simple-big clearfix\"> ";
+                bloggerposts.InnerHtml = bloggerposts.InnerHtml + "<h3><a href=postdetail.aspx?Id=" + item.Post_id + ">" + item.PostTitle + "</a></h3>";
+                
                 string content = null;
                 if (item.PostContent.ToString().Length > 270)
                 {
@@ -69,7 +62,7 @@ public partial class Blogdetail : System.Web.UI.Page
                     content = item.PostContent.ToString();
                 }
 
-                postall.InnerHtml = postall.InnerHtml + "<p class=\"excerpt\" style=\"float:left;text-align:justify;width:72%\">" + content + "...<a style=\"color:#45619D;font-size:14px;font-weight:bold\"  href=postdetail.aspx?Id=" + item.Post_id + " >Read More</a></p></header></article>";
+                bloggerposts.InnerHtml = bloggerposts.InnerHtml + "<p class=\"excerpt\" style=\"float:left;text-align:justify;width:72%\">" + content + "...<a style=\"color:#45619D;font-size:14px;font-weight:bold\"  href=postdetail.aspx?Id=" + item.Post_id + " >Read More</a></p></header></article>";
             }
 
         }
@@ -78,18 +71,5 @@ public partial class Blogdetail : System.Web.UI.Page
 
             throw;
         }
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

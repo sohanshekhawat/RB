@@ -13,7 +13,7 @@ public class RepositoryCollection
     private BloggerRepo bloggerRepo;
     private PostRepo postRepo;
     private OrgRepo orgRepo;
-
+    private UserManagement userManageRepo;
     private static readonly RepositoryCollection instance = new RepositoryCollection();
 
     public static RepositoryCollection Instance
@@ -35,10 +35,12 @@ public class RepositoryCollection
         bloggerRepo = new BloggerRepo(dbobj);
         postRepo = new PostRepo(dbobj);
         orgRepo = new OrgRepo(dbobj);
+        userManageRepo = new UserManagement(dbobj);
     }
 
     public MasterDataRepo MasterDataRepo { get { return masterDataRepo; } }
     public BloggerRepo BloggerRepo { get { return bloggerRepo; } }
     public PostRepo PostRepo { get { return postRepo; } }
     public OrgRepo OrgRepo { get { return orgRepo; } }
+    public UserManagement UserManageRepo { get { return userManageRepo; } }
 }

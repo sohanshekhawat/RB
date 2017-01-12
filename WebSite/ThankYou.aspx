@@ -61,12 +61,16 @@
                 <div class="login-warrper signup_section">
                     <div class="login_bg" style="width:97%">
                         <h1>
-                          Thanks for the registration you will get conformation message on your email address shortly</h1>
-                        
-                    <br /><div style="float:right;">
-                    <a href="Default.aspx" style="color:Black !important;">Back To Home</a>
+                            <asp:Literal ID="ltMessage" runat="server" />
+                          
+                        </h1>
+                        <br />
+                        <div style="float:right;">
+                            <a href="Default.aspx" style="color:Black !important;">Back To Home</a>
+                          </div>
                     </div>
-                    </div>
+
+
                 </div>
             </div>
           

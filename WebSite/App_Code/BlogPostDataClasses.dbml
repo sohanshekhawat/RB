@@ -37,56 +37,10 @@
       <Column Name="ProfPic" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
-  <Table Name="dbo.tb_bloggerregistration" Member="tb_bloggerregistrations">
-    <Type Name="tb_bloggerregistration">
-      <Column Name="Blogger_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Editby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ProfilePict" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="StreetAddress" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="State" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Zipcode" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Country" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="LoginUser" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Organization_id" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ProfilePictTest" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tb_CountryMaster" Member="tb_CountryMasters">
     <Type Name="tb_CountryMaster">
       <Column Name="Country_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Country_Nm" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tb_OrganizationList" Member="tb_OrganizationLists">
-    <Type Name="tb_OrganizationList">
-      <Column Name="Organization_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Editby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ProfilePict" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="StreetAddress" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="State" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Zipcode" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Country" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="LoginUser" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tb_PostList" Member="tb_PostLists">
@@ -128,6 +82,60 @@
       <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="Phone" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_bloggerregistration" Member="tb_bloggerregistrations">
+    <Type Name="tb_bloggerregistration">
+      <Column Name="Blogger_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Editby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProfilePict" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="StreetAddress" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Zipcode" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LoginUser" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Organization_id" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProfilePictTest" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EmailVerified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EmailCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MobileVerified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MobileCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_OrganizationList" Member="tb_OrganizationLists">
+    <Type Name="tb_OrganizationList">
+      <Column Name="Organization_id" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Editby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProfilePict" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="StreetAddress" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Zipcode" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LoginUser" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EmailCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailVerified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MobileCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MobileVerified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_Blogger" Method="sp_Blogger">

@@ -41,6 +41,8 @@ public partial class index : System.Web.UI.Page
     {
         try
         {
+           var subCategoryId = Convert.ToInt32(Request.QueryString["subCategoryId"]);
+
             dbobj = new BlogPostDataClassesDataContext(con.cn);
             var ns = dbobj.sp_postlist("post", 0, 0).OrderByDescending(T => T.Post_id).Where(T => T.organizationstatus == "Approved" && T.bloggerstatus == "Approved" && T.Active == true);
             if (ns != null)

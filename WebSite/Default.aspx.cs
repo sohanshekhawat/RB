@@ -1,41 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BlogPost;
 
 public partial class index : System.Web.UI.Page
 {
-    //connection con = new connection();
-  //  BlogPostDataClassesDataContext dbobj;
-
-//    BlogPostDataClassesDataContext dbobj = RepositoryCollection.Instance.dbobj;
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            postlist();            
-            postpo();
-            populerblog();
-
+            GetRecentPosts();            
+            GetRecentOrganisations();
+            GetRecentBloggers();
         }
     }
-    public void postlist()
+    private void GetRecentPosts()
     {
         try
         {
-            var ns = RepositoryCollection.Instance.PostRepo.GetApprovedPost();
-            //var dbobj = new BlogPostDataClassesDataContext(con.cn);
-            //var ns = dbobj.sp_postlist("post", 0, 0).OrderByDescending(T => T.Post_id).Take(10).Where(T => T.organizationstatus == "Approved" && T.bloggerstatus == "Approved" && T.Active == true);
+            var ns = RepositoryCollection.Instance.PostRepo.GetRecentPosts();
             if (ns != null)
             {
                 allpostlist.DataSource = ns;
                 allpostlist.DataBind();
             }
-
         }
         catch (Exception ex)
         {
@@ -49,16 +36,18 @@ public partial class index : System.Web.UI.Page
         {
             if (e.CommandName == "postlist")
             {
-            //    dbobj = new BlogPostDataClassesDataContext(con.cn);
-              //  var PostDetails = dbobj.sp_postlist("postdetail", Convert.ToInt32(e.CommandArgument), 0).FirstOrDefault();
-                //var PostDetails = RepositoryCollection.Instance.PostRepo.GetPostById(Convert.ToInt32(e.CommandArgument));
-                //Session["ImageUrl"] = "http://demo.rajputbook.com/siteimages/postImg/" + PostDetails.Image;
-                //Session["caption"] = PostDetails.PostTitle;
-                //Session["description"] = PostDetails.PostContent;
-                //Session["link"] = "http://demo.rajputbook.com/postdetail.aspx?Id=" + e.CommandArgument.ToString();
-
+    
                 Response.Redirect("postdetail.aspx?Id=" + e.CommandArgument.ToString());
             }
+            else if (e.CommandName == "blogger")
+            {
+                Response.Redirect("Blogdetail.aspx?Id=" + e.CommandArgument.ToString());
+            }
+            else if (e.CommandName == "category")
+            {
+                Response.Redirect("post.aspx?Id=" + e.CommandArgument.ToString());
+            }
+            
         }
         catch (Exception ex)
         {
@@ -66,14 +55,11 @@ public partial class index : System.Web.UI.Page
         }
 
     }
-    public void postpo()
+    private void GetRecentOrganisations()
     {
         try
         {
-
-            //dbobj = new BlogPostDataClassesDataContext(con.cn);
-            //var ftd = dbobj.tb_OrganizationLists.OrderByDescending(T => T.Organization_id).Where(T => T.Status == "Approved" && T.Active == true).Take(10);
-            var ftd = RepositoryCollection.Instance.OrgRepo.GetOrganisations();
+            var ftd = RepositoryCollection.Instance.OrgRepo.GetRecentOrganisations();
             foreach (var item in ftd)
             {
                 postpop.InnerHtml = postpop.InnerHtml + "<article class=\"widget-post clearfix\"> ";
@@ -94,11 +80,6 @@ public partial class index : System.Web.UI.Page
                     }
                     postpop.InnerHtml = postpop.InnerHtml + "<p class=\"simple-share\" style=\"text-align: justify;\"><span style=\" line-height: 125%;\">" + content + "...<a style=\"color:#45619D;font-size:14px;font-weight:bold\"  href=Organizationdetail.aspx?Id=" + item.Organization_id + " >Read More</a></span></p></header></article>";
                 }
-
-                //else
-                //{
-                //    postpop.InnerHtml = postpop.InnerHtml + "<p class=\"simple-share\" style=\"text-align: justify;\"><span  style=\" line-height: 125%;\">" + item.Description + "...<a style=\"color:#45619D;font-size:14px;font-weight:bold\"  href=Organizationdetail.aspx?Id=" + item.Organization_id + " >Read More</a></span></p></header></article></hr>";
-                //}
             }
 
         }
@@ -109,21 +90,18 @@ public partial class index : System.Web.UI.Page
         }
 
     }
-    public void populerblog()
+    private void GetRecentBloggers()
     {
         try
         {
-            // dbobj = new BlogPostDataClassesDataContext(con.cn);
-            //var ftd = dbobj.tb_bloggerregistrations.OrderByDescending(T => T.Blogger_id).Where(T => T.Status == "Approved" && T.Active == true).Take(10);
-            var ftd = RepositoryCollection.Instance.BloggerRepo.GetBloggers();
+            var ftd = RepositoryCollection.Instance.BloggerRepo.GetRecentBloggers();
             foreach (var item in ftd)
             {
                 bloggerpop.InnerHtml = bloggerpop.InnerHtml + "<article class=\"widget-post clearfix\"> ";
                 bloggerpop.InnerHtml = bloggerpop.InnerHtml + "<div class=\"simple-thumb\">";
                 bloggerpop.InnerHtml = bloggerpop.InnerHtml + "<a href=Blogdetail.aspx?id=" + item.Blogger_id + "><img src=siteimages/BloggerImg/" + item.ProfilePict + "></a></div>";
                 bloggerpop.InnerHtml = bloggerpop.InnerHtml + "<header><h3><a href=Blogdetail.aspx?id=" + item.Blogger_id + ">" + item.Name + "</a></h3>";
-
-
+                
                 if (item.Description != null)
                 {
                     string content = null;

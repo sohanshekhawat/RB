@@ -27,7 +27,7 @@ public class PostRepo : BaseRepo
     {
         return dbobj.sp_postlist("bloggerpost", bloggerId,null).ToList();
     }
-    public List<sp_postlistResult> GetApprovedPost()
+    public List<sp_postlistResult> GetRecentPosts()
     {
         return dbobj.sp_postlist("HomePageto10", null,null).ToList();
     }
