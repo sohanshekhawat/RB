@@ -9,10 +9,7 @@ using System.Drawing;
 using System.IO;
 
 public partial class index : System.Web.UI.Page
-{
-    connection con = new connection();
-    BlogPostDataClassesDataContext dbobj;
-    protected void Page_Load(object sender, EventArgs e)
+{   protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
@@ -78,8 +75,7 @@ public partial class index : System.Web.UI.Page
             txtstate.Text = string.Empty;
             txtzipcode.Text = string.Empty;
             txtemail.Text = string.Empty;
-            txtpassword.Text = null;
-            lblstats.Text = "0";
+            txtpassword.Text = null;    
             cmbOrganization.SelectedIndex = 0;
             txtcontry.Text = "";
             txtemail.Text = "";

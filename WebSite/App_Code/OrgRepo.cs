@@ -22,7 +22,7 @@ public class OrgRepo
 
     public tb_OrganizationList GetOrganisationById(int id)
     {
-        return dbobj.tb_OrganizationLists.Where(T => T.Organization_id == id && T.Status == "Approved" && T.Active == true).FirstOrDefault();
+        return dbobj.tb_OrganizationLists.Where(T => T.Organization_id == id).FirstOrDefault();
     }
 
     public bool CreateNew(tb_OrganizationList organisation)
@@ -30,6 +30,13 @@ public class OrgRepo
         dbobj.tb_OrganizationLists.InsertOnSubmit(organisation);
         dbobj.SubmitChanges();
         return true;
+    }
 
+    public bool Update(tb_OrganizationList organisation)
+    {
+        var temp = dbobj.tb_OrganizationLists.Single(t => t.Organization_id == organisation.Organization_id);
+        temp = organisation;
+        dbobj.SubmitChanges();
+        return true;
     }
 }

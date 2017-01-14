@@ -20,6 +20,11 @@ public class BloggerRepo : BaseRepo
         return dbobj.sp_bloggerdiscription(bloggerId).FirstOrDefault();
     }
 
+    public tb_bloggerregistration GetBloggerById(int id)
+    {
+        return dbobj.tb_bloggerregistrations.FirstOrDefault(T => T.Blogger_id == id);
+    }
+
     public IQueryable<tb_bloggerregistration> GetRecentBloggers()
     {
         return dbobj.tb_bloggerregistrations.OrderByDescending(T => T.Blogger_id).Where(T => T.Status == "Approved" && T.Active == true).Take(10);
@@ -37,5 +42,13 @@ public class BloggerRepo : BaseRepo
         dbobj.SubmitChanges();
         return true;
 
+    }
+
+    public bool Update(tb_bloggerregistration blogger)
+    {
+        var temp = dbobj.tb_bloggerregistrations.Single(t => t.Blogger_id == blogger.Blogger_id);
+        temp = blogger;
+        dbobj.SubmitChanges();
+        return true;
     }
 }

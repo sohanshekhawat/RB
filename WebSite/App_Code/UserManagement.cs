@@ -18,17 +18,17 @@ public class UserManagement
     public LoggedInUser Login(string email, string password)
     {
         LoggedInUser user = null;
-        var blogger = dbobj.tb_bloggerregistrations.FirstOrDefault(T => T.email == email && T.Password == password && T.Status == "Approved" && T.Active == true);
+        var blogger = dbobj.tb_bloggerregistrations.FirstOrDefault(T => T.email == email && T.Password == password);
         if (blogger != null)
         {
-            user = new LoggedInUser((int) blogger.Blogger_id, "B", blogger.Name, blogger.email, (int)blogger.Organization_id);
+            user = new LoggedInUser((int) blogger.Blogger_id, "B", blogger.Name, blogger.email, (int)blogger.Organization_id, blogger.Active, blogger.Status);
         }
         else
         {
-           var organisation = dbobj.tb_OrganizationLists.FirstOrDefault(T => T.email == email && T.Password == password && T.Status == "Approved" && T.Active == true);
+           var organisation = dbobj.tb_OrganizationLists.FirstOrDefault(T => T.email == email && T.Password == password);
            if (organisation != null)
            {
-                user = new LoggedInUser((int)organisation.Organization_id, "O", organisation.Name, organisation.email, (int)organisation.Organization_id);
+                user = new LoggedInUser((int)organisation.Organization_id, "O", organisation.Name, organisation.email, (int)organisation.Organization_id, organisation.Active, organisation.Status);
             }
         }
         return user;
@@ -64,6 +64,25 @@ public class UserManagement
         else
         {
             var organisation = dbobj.tb_OrganizationLists.FirstOrDefault(T => T.email == email || T.Phone == mobile);
+            if (organisation != null)
+            {
+                return new UserEmailMobile(organisation.email, organisation.Phone);
+            }
+        }
+        return userEmailMobile;
+    }
+
+    public UserEmailMobile IsMobileAlreadyExist(int userId, string mobile)
+    {
+        UserEmailMobile userEmailMobile = null;
+        var blogger = dbobj.tb_bloggerregistrations.FirstOrDefault(T => T.Blogger_id != userId & T.Phone == mobile);
+        if (blogger != null)
+        {
+            return new UserEmailMobile(blogger.email, blogger.Phone);
+        }
+        else
+        {
+            var organisation = dbobj.tb_OrganizationLists.FirstOrDefault(T => T.Organization_id != userId & T.Phone == mobile);
             if (organisation != null)
             {
                 return new UserEmailMobile(organisation.email, organisation.Phone);

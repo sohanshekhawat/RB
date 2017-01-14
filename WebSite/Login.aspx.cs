@@ -14,7 +14,6 @@ public partial class Login : System.Web.UI.Page
 
     protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
     {
-
         var result = RepositoryCollection.Instance.UserManageRepo.Login(Login1.UserName, Login1.Password);
 
         if (result != null)
@@ -37,6 +36,5 @@ public partial class Login : System.Web.UI.Page
             }
         }
         e.Authenticated = false;
-        
     }
 }

@@ -68,7 +68,7 @@
                     <ul class="nav navbar-nav">
               
                         <li class="dropdown menu-color1">
-                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">Profile</a>
+                            <a href="ViewProfile.aspx" data-toggle="dropdown" role="button" aria-expanded="false">Profile</a>
                         </li><!-- .dropdown .menu-color1 -->
 
                         <li class="dropdown menu-color1">

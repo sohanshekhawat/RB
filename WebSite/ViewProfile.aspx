@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Signup.aspx.cs" Inherits="index" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewProfile.aspx.cs" Inherits="index" EnableEventValidation="false" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="~/Usercontrol/Header.ascx" TagPrefix="uc" TagName="Header" %>
 <%@ Register Src="~/Usercontrol/Footer.ascx" TagPrefix="fc" TagName="Footer" %>
@@ -316,10 +316,12 @@
                 <div class="login_signup_bg clearfix">
                     <div class="login-warrper signup_section">
                         <div class="login_bg">
-                            &nbsp;<h1>Registration Form</h1>
+                            &nbsp;<h1>Update Registration Form</h1>
                             <br />
 
                             <a style="height: 250px; width: 250px;" class="js-open-modal " data-modal-id="popup1">
+                                 <img runat="server" id="profileimage" style="height: 200px; width: 200px; border-radius: 100% 100% 100% 100%; margin-left: 2%; background-image: url('img/upimage.png'); background-repeat: no-repeat; background-position: center; -moz-border-radius: 100% 100% 100% 100%; -webkit-border-radius: 100% 100% 100% 100%;"  />
+                            
                                 <asp:Label ID="lbloldprofilepict" runat="server" Text="" Visible="false"></asp:Label>
                                 <div class="cropped" style="height: 200px; width: 200px; border-radius: 100% 100% 100% 100%; margin-left: 25%; background-image: url('img/upimage.png'); background-repeat: no-repeat; background-position: center; -moz-border-radius: 100% 100% 100% 100%; -webkit-border-radius: 100% 100% 100% 100%; cursor: pointer"
                                     id="_profilepic" runat="server">
@@ -327,28 +329,8 @@
                             </a>
                             <br />
 
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                <ContentTemplate>
-
-                                    <label>[Please register as Individual or Organisation User.]</label>
-                                    <br />
-                                    <asp:RadioButton class="social_checkbox" runat="server" Text="Individual" ID="rbB" GroupName="R" AutoPostBack="True"
-                                        OnCheckedChanged="rbB_CheckedChanged" Checked="true" Visible="true" ToolTip="आप लोग ब्लॉग या अर्टिकल लिख सकते हैं  !" />
-                                    &nbsp &nbsp
-                                     <asp:RadioButton class="social_checkbox" runat="server" ID="rbO" GroupName="R" Text="Organization"
-                                         AutoPostBack="True" OnCheckedChanged="rbO_CheckedChanged" ToolTip="समाज की सेवा क़े  लिए संगठन !" />
-
-                                    <br />
-
-                                    <asp:DropDownList class="social_Drop" runat="server" ID="cmbOrganization" Visible="true" Width="95%" CssClass="social_Drop"></asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="cmbOrganization"
-                                        Display="Dynamic" ErrorMessage="*" ForeColor="Red" InitialValue="0"
-                                        ValidationGroup="submint" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                            <br />
-
-
+                            <asp:Literal ID ="lblOrgName" runat="server"></asp:Literal>
+                            
 
                             <asp:TextBox class="social_textbox" type="text" ID="txtName" runat="server" placeholder="Name"
                                 Width="97%"></asp:TextBox>
@@ -368,32 +350,6 @@
                                 TargetControlID="txtphone" ValidChars="0123456789">
                             </asp:FilteredTextBoxExtender>
 
-
-                            <asp:TextBox class="social_textbox" MaxLength="200" type="email" ID="txtemail" runat="server"
-                                placeholder="Email Address" Width="97%"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="submint"
-                                ErrorMessage="*" ControlToValidate="txtemail" ForeColor="Red"
-                                SetFocusOnError="True"></asp:RequiredFieldValidator>
-                            <asp:ValidatorCalloutExtender ID="RequiredFieldValidator4_ValidatorCalloutExtender"
-                                runat="server" Enabled="True" TargetControlID="RequiredFieldValidator4" HighlightCssClass="highlight">
-                            </asp:ValidatorCalloutExtender>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationGroup="submint"
-                                ErrorMessage="Invalid Email" ControlToValidate="txtemail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-                                ForeColor="Red" SetFocusOnError="True"></asp:RegularExpressionValidator>
-
-
-                            <asp:TextBox autocomplete="off" TextMode="Password" ID="txtpassword" class="social_textbox"
-                                placeholder="Password" type="password" runat="server" Width="97%"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ValidationGroup="submint"
-                                ErrorMessage="*" ControlToValidate="txtpassword" ForeColor="Red"></asp:RequiredFieldValidator>
-
-                            <asp:TextBox autocomplete="off" TextMode="Password" ID="txtConfirm" class="social_textbox"
-                                placeholder="Confirm Password" type="password" runat="server" Width="97%"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="submint"
-                                ErrorMessage="*" ControlToValidate="txtConfirm" ForeColor="Red"></asp:RequiredFieldValidator>
-
-                            <asp:CompareValidator ID="comparePasswords" runat="server" ControlToCompare="txtpassword" ValidationGroup="submint"
-                                ControlToValidate="txtConfirm" ErrorMessage="Your password and confirm password do not match." Display="Dynamic" ForeColor="Red" />
 
                             <asp:TextBox autocomplete="off" Width="97%" ID="txtcity" class="social_textbox" runat="server"
                                 placeholder="Enter City Name"></asp:TextBox>
@@ -436,7 +392,7 @@
                                     <input id="transl1" style="display: none !important;" type="textbox"><br>
                                     भाषाओं और अंग्रेजी भाषा के मध्य चुनाव के लिए CTRL+g का प्रयोग करें<br>
                                     Uncheck this to stop conversion<br>
-                                    <textarea id="transl2" style="border: solid 1px #ddd; padding: 15px; margin-bottom: 20px; color: #333; font-size: 18px; height: 250px; width: 95%; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow-x:scroll; overflow-y:scroll;"
+                                    <textarea id="transl2" style="border: solid 1px #ddd; padding: 15px; margin-bottom: 20px; color: #333; font-size: 18px; height: 250px; width: 95%; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box"
                                         runat="server"></textarea>
                                 </p>
                             </div>
@@ -520,11 +476,8 @@
                                         function Currentimg() {
                                             var crrimg = sessionStorage.getItem("curimg");
                                             document.getElementById("imgCropped").value = crrimg;
-
-
                                         }
-
-
+                                        
                                     </script>
                                 </td>
                             </tr>
